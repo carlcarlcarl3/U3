@@ -100,29 +100,18 @@ function dragEndBrick(e) {
         moveCountElem.innerHTML = (16 - brickCounter);
 
 
-        //extracts this "img/1.png" from this "http://localhost:63343/U3/img/1.png"
         // old works on locallet imgNr = e.dataTransfer.getData("text").substr(e.dataTransfer.getData("text").indexOf("i"));
 
-        //new real
+        //Extraherar den sista biten som alltid kommer inehålla de siffror jag är intressearade av och inga andra siffror
         let imgNr = e.dataTransfer.getData("text").slice(-8);
-
-
-        //NEWTest
-        // let imgNr2 = testText.slice(-8);
-        console.log(imgNr);
-
-        //let reg2 = /img\/\d+\.png/;
-        //let reg2 = /\d+/;
 
         //Used to extract picture number so it can be stored in id
         let reg1 = /\d+/;
 
-
         //stores the img number in imgNr
         imgNr = imgNr.match(reg1);
-        //imgNr2 = imgNr2.match(reg2);
-        console.log(imgNr);
-        //console.log(imgNr2);
+
+
         //interactions with the slot that the brick has been placed in
         this.src = e.dataTransfer.getData("text");
         this.style.backgroundColor = "";
@@ -191,9 +180,7 @@ function scoreCalc() {
         BrickNrs.splice(0, 4);
 
     }
-    console.log("before for loops")
 
-    console.log(BrickNrs)
 
     //For horisontal signs
     //This loop is to itterate over columns
@@ -209,17 +196,6 @@ function scoreCalc() {
         }
 
         let resultElem = document.getElementById('c' + (i + 1) + 'mark');
-        console.log("BrickNrs at itteration");
-        console.log(BrickNrs);
-
-        console.log(BrickNrs[0]);
-        console.log(BrickNrs[1]);
-        console.log(BrickNrs[2]);
-        console.log(BrickNrs[3]);
-
-        console.log((BrickNrs[0] < BrickNrs[1]));
-        console.log((BrickNrs[1] < BrickNrs[2]));
-        console.log((BrickNrs[2] < BrickNrs[3]));
 
 
         //kontrollerar om man skall få poäng; är nästkommande nummer är större än det föregående?
